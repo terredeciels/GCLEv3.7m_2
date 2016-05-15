@@ -1,0 +1,43 @@
+cd D:\Documents\CHESS\MAVEN\FINAL\GCLEv3.7m_1; "JAVA_HOME=C:\\Program Files\\Java\\jdk1.8.0_60" cmd /c "\"\"C:\\Program Files\\NetBeans 8.1\\java\\maven\\bin\\mvn.bat\" -Dtest=position.MultipleFenToGPositionSerTest2 -Dmaven.ext.class.path=\"C:\\Program Files\\NetBeans 8.1\\java\\maven-nblib\\netbeans-eventspy.jar;C:\\Program Files\\NetBeans 8.1\\java\\maven-nblib\\netbeans-cos.jar\" -Dfile.encoding=UTF-8 surefire:test\""
+Running NetBeans Compile On Save execution. Phase execution is skipped and output directories of dependency projects (with Compile on Save turned on) will be used instead of their jar artifacts.
+Scanning for projects...
+                                                                        
+------------------------------------------------------------------------
+Building GCLEv3.7m_1 1.0-SNAPSHOT
+------------------------------------------------------------------------
+
+--- maven-surefire-plugin:2.10:test (default-cli) @ GCLEv3.7m_1 ---
+Surefire report directory: D:\Documents\CHESS\MAVEN\FINAL\GCLEv3.7m_1\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running position.MultipleFenToGPositionSerTest2
+1958723
+coups en plus:[O-O-O]
+after move
+r3kb1r/1bpp1ppp/1Qp5/p3PP2/2P5/1n6/PP1BB1PP/R3K2R b KQkq - 0 16
+r3kb1r/1bpp1ppp/1Qp5/p3PP2/2P5/8/PP1BB1PP/n3K2R w Kkq - 0 17
+b3xa1
+trait aux Blancs
+
+coups en plus:[O-O]
+after move
+r1b1k2r/p1pp1ppp/2p4q/2N1P3/5P2/3B4/PPP1Q1PP/R1B1K2n b KQkq - 0 13
+r1b1k2r/p1pp1ppp/2p4q/2N1P3/5P2/3B4/PPP1QnPP/R1B1K3 w Qkq - 1 14
+h1-f2
+trait aux Blancs
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 377.864 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+------------------------------------------------------------------------
+BUILD SUCCESS
+------------------------------------------------------------------------
+Total time: 6:19.622s
+Finished at: Sat May 14 22:05:27 CEST 2016
+Final Memory: 6M/113M
+------------------------------------------------------------------------
