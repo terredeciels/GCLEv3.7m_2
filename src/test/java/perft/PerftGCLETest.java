@@ -46,8 +46,21 @@ public class PerftGCLETest {
         System.out.println("depth 2: " + miniMax);//OK
         assert (miniMax == 400);
         miniMax = miniMax(gp, 3);
-        System.out.println("depth 3: " + miniMax);//10874 aulieu de 8902 !
+        System.out.println("depth 3: " + miniMax);//OK
         assert (miniMax == 8902);
+        miniMax = miniMax(gp, 4);
+        System.out.println("depth 4: " + miniMax);//OK
+        assert (miniMax == 197281);
+        miniMax = miniMax(gp, 5);
+        System.out.println("depth 5: " + miniMax + "  () sec");//OK
+        assert (miniMax == 4865609);
+        miniMax = miniMax(gp, 6);
+        System.out.println("depth 6: " + miniMax + "  () sec");//OK plus long > 4 min
+        assert (miniMax == 119060324);
+        // integer too large :
+//        miniMax = miniMax(gp, 7);
+//        System.out.println("depth 7: " + miniMax +"  () sec");
+//        assert (miniMax == 3195901860);
     }
 
     private long miniMax(GPosition gp, int depth) {
@@ -60,7 +73,7 @@ public class PerftGCLETest {
         for (int i = 0; i < moves.size(); i++) {
             GCoups gcoups = moves.get(i);
             UndoGCoups ui = new UndoGCoups();
-            gp.exec(gcoups,ui);
+            gp.exec(gcoups, ui);
             nodes += miniMax(gp, depth - 1);
             gp.unexec(ui);
         }
