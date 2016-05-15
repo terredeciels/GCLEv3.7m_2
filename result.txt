@@ -1,34 +1,69 @@
-cd D:\Documents\CHESS\MAVEN\FINAL\GCLEv3.7m_1; "JAVA_HOME=C:\\Program Files\\Java\\jdk1.8.0_60" cmd /c "\"\"C:\\Program Files\\NetBeans 8.1\\java\\maven\\bin\\mvn.bat\" -Dtest=position.MultipleFenToGPositionSerTest2 -Dmaven.ext.class.path=\"C:\\Program Files\\NetBeans 8.1\\java\\maven-nblib\\netbeans-eventspy.jar;C:\\Program Files\\NetBeans 8.1\\java\\maven-nblib\\netbeans-cos.jar\" -Dfile.encoding=UTF-8 surefire:test\""
+cd D:\Documents\CHESS\MAVEN\FINAL\GCLEv3.7m_2; "JAVA_HOME=C:\\Program Files\\Java\\jdk1.8.0_60" cmd /c "\"\"C:\\Program Files\\NetBeans 8.1\\java\\maven\\bin\\mvn.bat\" -Dtest=position.ExecGCoupsTest -Dmaven.ext.class.path=\"C:\\Program Files\\NetBeans 8.1\\java\\maven-nblib\\netbeans-eventspy.jar;C:\\Program Files\\NetBeans 8.1\\java\\maven-nblib\\netbeans-cos.jar\" -Dfile.encoding=UTF-8 surefire:test\""
 Running NetBeans Compile On Save execution. Phase execution is skipped and output directories of dependency projects (with Compile on Save turned on) will be used instead of their jar artifacts.
 Scanning for projects...
                                                                         
 ------------------------------------------------------------------------
-Building GCLEv3.7m_1 1.0-SNAPSHOT
+Building GCLEv3.7m_2 1.0-SNAPSHOT
 ------------------------------------------------------------------------
 
---- maven-surefire-plugin:2.10:test (default-cli) @ GCLEv3.7m_1 ---
-Surefire report directory: D:\Documents\CHESS\MAVEN\FINAL\GCLEv3.7m_1\target\surefire-reports
+--- maven-surefire-plugin:2.10:test (default-cli) @ GCLEv3.7m_2 ---
+Surefire report directory: D:\Documents\CHESS\MAVEN\FINAL\GCLEv3.7m_2\target\surefire-reports
 
 -------------------------------------------------------
  T E S T S
 -------------------------------------------------------
-Running position.MultipleFenToGPositionSerTest2
-1958723
-coups en plus:[O-O-O]
+Running position.ExecGCoupsTest
+744356
+G_coups en plus:[O-O-O] - PAS DE TOUR NOIRE EN A8
 after move
-r3kb1r/1bpp1ppp/1Qp5/p3PP2/2P5/1n6/PP1BB1PP/R3K2R b KQkq - 0 16
-r3kb1r/1bpp1ppp/1Qp5/p3PP2/2P5/8/PP1BB1PP/n3K2R w Kkq - 0 17
-b3xa1
+B3k2r/3b1p2/p3pq1p/1p5Q/P1pp3p/2b5/1P3PPP/2KR3R w kq - 0 18
+4k2r/3b1p2/p3pq1p/1p5Q/P1ppB2p/2b5/1P3PPP/2KR3R b k - 1 18
+a8-e4
+trait aux Noirs
+
+G_coups en plus:[O-O-O]   - PAS DE TOUR NOIRE EN A8
+after move
+B3k2r/3b1p2/p3pq1p/1p5Q/P1p4p/2Pp4/5PPP/2KR3R w kq - 0 19
+4k2r/3b1p2/p3pq1p/1p5Q/P1p4p/2Pp1B2/5PPP/2KR3R b k - 1 19
+a8-f3
+trait aux Noirs
+
+CP_coups en plus :[a8-a7, a8-b7, a8-b8, a8-c6, a8-d5, a8-e4, a8-f3, a8xa6, a8xc8] - POSITION ??
+after move
+B3k2r/3b1p2/p3pq1p/1p5Q/P1p4p/2PR4/5PPP/2K4R b kq - 0 19
+Q1kr3r/3b1p2/p3pq1p/1p5Q/P1p4p/2PR4/5PPP/2K4R w - - 1 20
+O-O-O
 trait aux Blancs
 
-coups en plus:[O-O]
+G_coups en plus:[O-O-O]  - PAS DE TOUR NOIRE EN A8
 after move
-r1b1k2r/p1pp1ppp/2p4q/2N1P3/5P2/3B4/PPP1Q1PP/R1B1K2n b KQkq - 0 13
-r1b1k2r/p1pp1ppp/2p4q/2N1P3/5P2/3B4/PPP1QnPP/R1B1K3 w Qkq - 1 14
-h1-f2
+B3k2r/3b1p2/p3pq1p/1p5Q/P6p/2Pp4/5PPP/2K4R w kq - 0 20
+4k2r/3b1p2/p3pq1p/1p1B3Q/P6p/2Pp4/5PPP/2K4R b k - 1 20
+a8-d5
+trait aux Noirs
+
+G_coups en plus:[O-O]   - PAS DE TOUR NOIRE EN A1
+after move
+rn3k1r/p1pp1qbP/1p2pn2/6B1/2PP1N1Q/2NB4/PP3P1P/R3K2b b KQ - 7 13
+rn3k1r/p1pp1qbP/1pb1pn2/6B1/2PP1N1Q/2NB4/PP3P1P/R3K3 w Q - 8 14
+h1-c6
 trait aux Blancs
 
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 377.864 sec
+G_coups en plus:[f3-a8]  - POSITION ??  GRAND ROQUE ET APPARITION D'UNE TOUR
+after move
+4k3/3b1p2/p3p2p/1p4r1/3Q3p/2P2B2/KR1p1PPP/2q5 b q - 7 27
+r1kr4/3b1p2/p3p2p/1p4r1/3Q3p/2P2B2/KR1p1PPP/2q5 w - - 8 28
+O-O-O
+trait aux Blancs
+
+G_coups en plus:[e5-a1]  GRAND ROQUE ET APPARITION D'UNE TOUR
+after move
+r4rk1/p4p1p/1q1p2p1/1b1Pb3/1P2P3/Q3B1N1/4B1PP/4K2R w KQ - 0 23
+r4rk1/p4p1p/1q1p2p1/1b1Pb3/1P2P3/Q3B1N1/4B1PP/R1KR3R b - - 1 23
+O-O-O
+trait aux Noirs
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 159.219 sec
 
 Results :
 
@@ -37,7 +72,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 ------------------------------------------------------------------------
 BUILD SUCCESS
 ------------------------------------------------------------------------
-Total time: 6:19.622s
-Finished at: Sat May 14 22:05:27 CEST 2016
-Final Memory: 6M/113M
+Total time: 2:40.853s
+Finished at: Sun May 15 15:21:07 CEST 2016
+Final Memory: 7M/109M
 ------------------------------------------------------------------------

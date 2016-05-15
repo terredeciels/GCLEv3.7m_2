@@ -1,0 +1,50 @@
+//
+//    private void validerRoques() {
+//        int couleur = trait;
+//        // attention: -couleur
+//        PGenerateur pGen = new PGenerateur(this, -couleur);
+//        pGen.getPseudoCoupsAttaque();
+//        ArrayList<GCoups> coupsAttaque = pGen.getCoupsValides();
+//        boolean possible;
+//        if (couleur == BLANC) {
+//            possible = ((etats[f1] == VIDE)
+//                    && (etats[h1] == -TOUR)
+//                    && (etats[g1] == VIDE));
+//            possible &= !(attaqueRoque(e1, f1, g1, coupsAttaque));
+//            droitPetitRoqueBlanc = possible & droitPetitRoqueBlanc;
+//
+//            possible = ((etats[d1] == VIDE)
+//                    && (etats[a1] == -TOUR)
+//                    && (etats[c1] == VIDE)
+//                    && (etats[b1] == VIDE));
+//            possible &= !(attaqueRoque(e1, d1, c1, coupsAttaque));
+//            droitGrandRoqueBlanc = possible & droitGrandRoqueBlanc;
+//        } else {
+//            possible = ((etats[f8] == VIDE)
+//                    && (etats[h8] == TOUR)
+//                    && (etats[g8] == VIDE));
+//            possible &= !(attaqueRoque(e8, f8, g8, coupsAttaque));
+//            droitPetitRoqueNoir = possible & droitPetitRoqueNoir;
+//            possible = ((etats[d8] == VIDE)
+//                    && (etats[a8] == TOUR)
+//                    && (etats[c8] == VIDE)
+//                    && (etats[b8] == VIDE));
+//            possible &= !(attaqueRoque(e8, d8, c8, coupsAttaque));
+//            droitGrandRoqueNoir = possible & droitGrandRoqueNoir;
+//        }
+//    }
+//
+//    private boolean attaqueRoque(int E1ouE8, int F1ouF8, int G1ouG8, ArrayList<GCoups> coupsAttaque) {
+//        boolean attaque = false;
+//        int caseX;
+//        for (GCoups coups : coupsAttaque) {
+//            caseX = coups.getCaseX();
+//            if ((caseX == E1ouE8) || (caseX == F1ouF8) || (caseX == G1ouG8)) {
+//                attaque = true;
+//
+//                break;
+//            }
+//        }
+//        return attaque;
+//    }
+

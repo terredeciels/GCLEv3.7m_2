@@ -10,6 +10,7 @@ import position.FenToGPosition;
 import position.GCoups;
 import position.GPosition;
 import position.ICodage;
+import position.UndoGCoups;
 
 public class PerftGCLETest {
 
@@ -58,9 +59,10 @@ public class PerftGCLETest {
 
         for (int i = 0; i < moves.size(); i++) {
             GCoups gcoups = moves.get(i);
-            gp.exec(gcoups);
+            UndoGCoups ui = new UndoGCoups();
+            gp.exec(gcoups,ui);
             nodes += miniMax(gp, depth - 1);
-            gp.unexec();
+            gp.unexec(ui);
         }
         return nodes;
     }

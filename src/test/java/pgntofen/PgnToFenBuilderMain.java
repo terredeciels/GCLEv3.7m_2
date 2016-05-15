@@ -13,7 +13,7 @@ public class PgnToFenBuilderMain {
 
     private static void pgn2fen() throws IOException {
 
-        File fichier = new File("D:\\Documents\\CHESS\\MAVEN\\FINAL\\GCLEv3.7m_1\\FenListTest.ser");
+        File fichier = new File("D:\\Documents\\CHESS\\MAVEN\\FINAL\\GCLEv3.7m_2\\FenListTest_reduit.ser");
         ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fichier));
         Pgn m = new Pgn();
         oos.writeObject(m);

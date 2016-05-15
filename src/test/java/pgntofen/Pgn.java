@@ -25,14 +25,14 @@ public class Pgn implements Serializable {
         for (String f : Fen.getFenList()) {
             FenListTest.add(f);
         }
-        initFenList4();
-        for (String f : Fen.getFenList()) {
-            FenListTest.add(f);
-        }
-        initFenList5();
-        for (String f : Fen.getFenList()) {
-            FenListTest.add(f);
-        }
+//        initFenList4();
+//        for (String f : Fen.getFenList()) {
+//            FenListTest.add(f);
+//        }
+//        initFenList5();
+//        for (String f : Fen.getFenList()) {
+//            FenListTest.add(f);
+//        }
     }
 
     private void initFenList1() {
