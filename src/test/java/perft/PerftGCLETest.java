@@ -10,10 +10,6 @@ import position.FenToGPosition;
 import position.GCoups;
 import position.GPosition;
 import position.ICodage;
-import static position.ICodage.TYPE_DE_COUPS.EnPassant;
-import static position.ICodage.TYPE_DE_COUPS.Prise;
-import static position.ICodage.TYPE_DE_COUPS.Promotion;
-import static position.ICodage.TYPE_DE_COUPS.Roque;
 import position.UndoGCoups;
 
 public class PerftGCLETest {
@@ -22,6 +18,7 @@ public class PerftGCLETest {
     private int node_ep;
     private int node_prise;
     private int node_promotion;
+    private int e1_f1;
 
     public PerftGCLETest() {
     }
@@ -50,37 +47,43 @@ public class PerftGCLETest {
 //        f = "8/2p5/3p4/KP5r/1R3p1k/8/4P1P1/8 w - - 0 1";
         f = "r3k2r/Pppp1ppp/1b3nbN/nP6/BBP1P3/q4N2/Pp1P2PP/R2Q1RK1 w kq - 0 1";
         f = "r3k2r/8/8/8/8/8/8/4K3 w kq - 0 1";
+//        f = "1r2k2r/8/8/8/8/8/8/R3K2R w KQk - 0 1";
 
         GPosition gp = FenToGPosition.toGPosition(f);
+        System.out.println(gp.getTrait());
+        System.out.println(gp.isDroitPetitRoqueBlanc());
+        System.out.println(gp.isDroitGrandRoqueBlanc());
+        System.out.println(gp.isDroitPetitRoqueNoir());
+        System.out.println(gp.isDroitGrandRoqueNoir());
         long miniMax = miniMax(gp, 1);
 //        (!coupsvalides.isEmpty())
-        System.out.println("depth 1: " + miniMax);//6
+        System.out.println("depth 1: " + miniMax);//
         System.out.println("depth 2 roque: " + node_roque);//
         System.out.println("depth 2 ep: " + node_ep);// 
         System.out.println("depth 2 prise: " + node_prise);//
         System.out.println("depth 2 promotion: " + node_promotion);//
         System.out.println();
         miniMax = miniMax(gp, 2);
-        System.out.println("depth 2: " + miniMax);//264 OK
+        System.out.println("depth 2: " + miniMax);//
         System.out.println("depth 2 roque: " + node_roque);//
         System.out.println("depth 2 ep: " + node_ep);// 
-        System.out.println("depth 2 prise: " + node_prise);// 63 vs 87 def prise ?
-        System.out.println("depth 2 promotion: " + node_promotion);//48 OK
+        System.out.println("depth 2 prise: " + node_prise);// 
+        System.out.println("depth 2 promotion: " + node_promotion);//
         System.out.println();
         miniMax = miniMax(gp, 3);
-        System.out.println("depth 3: " + miniMax);//9467 OK
-        System.out.println("depth 3 roque: " + node_roque); //12 vs 0
-        System.out.println("depth 3 ep: " + node_ep);// 4 OK
+        System.out.println("depth 3: " + miniMax);//
+        System.out.println("depth 3 roque: " + node_roque); //
+        System.out.println("depth 3 ep: " + node_ep);// 
         System.out.println("depth 3 prise: " + node_prise);
-        System.out.println("depth 3 promotion: " + node_promotion);// diff
+        System.out.println("depth 3 promotion: " + node_promotion);//
         System.out.println();
         miniMax = miniMax(gp, 4);
-        System.out.println("depth 4: " + miniMax);//421897 vs 422333
-        System.out.println("depth 4 roque: " + node_roque);// 7377 vs 7795
-        System.out.println("depth 4 ep: " + node_ep);//8 vs 0
-        System.out.println("depth 4 prise: " + node_prise);//
-        System.out.println("depth 4 promotion: " + node_promotion);//60416 vs 60032
-        System.out.println();
+        System.out.println("depth 4: " + miniMax);//
+//        System.out.println("depth 4 roque: " + node_roque);//
+//        System.out.println("depth 4 ep: " + node_ep);//
+//        System.out.println("depth 4 prise: " + node_prise);//
+//        System.out.println("depth 4 promotion: " + node_promotion);//
+        System.out.println(e1_f1);
 
 //        miniMax = miniMax(gp, 5);
 //        System.out.println("depth 5: " + miniMax + "  () sec");//OK
@@ -104,7 +107,10 @@ public class PerftGCLETest {
         for (int i = 0; i < moves.size(); i++) {
             GCoups gcoups = moves.get(i);
             UndoGCoups ui = new UndoGCoups();
-            if (!gp.exec(gcoups, ui)) {
+            if (gp.exec(gcoups, ui)) {
+                if(GCoups.getString(gcoups).equals("O-O")){
+                    e1_f1 ++;
+                }
 //                if (gcoups.getTypeDeCoups().equals(Roque)) {
 //                    node_roque++;
 //                }

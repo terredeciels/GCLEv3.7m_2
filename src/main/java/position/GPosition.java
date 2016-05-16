@@ -226,4 +226,20 @@ public class GPosition implements ICodage {
 //        return coupsvalides_lan.toString();
     }
 
+    public boolean isDroitPetitRoqueNoir() {
+        return droitPetitRoqueNoir;
+    }
+
+    public boolean isDroitGrandRoqueNoir() {
+        return droitGrandRoqueNoir;
+    }
+
+    public boolean isDroitPetitRoqueBlanc() {
+        return droitPetitRoqueBlanc;
+    }
+
+    public boolean isDroitGrandRoqueBlanc() {
+        return droitGrandRoqueBlanc;
+    }
+
 }
