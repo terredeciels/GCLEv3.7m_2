@@ -49,6 +49,7 @@ public class PerftGCLETest {
 //        f = "r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 1";
 //        f = "8/2p5/3p4/KP5r/1R3p1k/8/4P1P1/8 w - - 0 1";
         f = "r3k2r/Pppp1ppp/1b3nbN/nP6/BBP1P3/q4N2/Pp1P2PP/R2Q1RK1 w kq - 0 1";
+        f = "r3k2r/8/8/8/8/8/8/4K3 w kq - 0 1";
 
         GPosition gp = FenToGPosition.toGPosition(f);
         long miniMax = miniMax(gp, 1);
@@ -80,7 +81,7 @@ public class PerftGCLETest {
         System.out.println("depth 4 prise: " + node_prise);//
         System.out.println("depth 4 promotion: " + node_promotion);//60416 vs 60032
         System.out.println();
-        
+
 //        miniMax = miniMax(gp, 5);
 //        System.out.println("depth 5: " + miniMax + "  () sec");//OK
 //        assert (miniMax == 4865609);
@@ -103,21 +104,22 @@ public class PerftGCLETest {
         for (int i = 0; i < moves.size(); i++) {
             GCoups gcoups = moves.get(i);
             UndoGCoups ui = new UndoGCoups();
-            gp.exec(gcoups, ui);
-            if (gcoups.getTypeDeCoups().equals(Roque)) {
-                node_roque++;
+            if (!gp.exec(gcoups, ui)) {
+//                if (gcoups.getTypeDeCoups().equals(Roque)) {
+//                    node_roque++;
+//                }
+//                if (gcoups.getTypeDeCoups().equals(EnPassant)) {
+//                    node_ep++;
+//                }
+//                if (gcoups.getTypeDeCoups().equals(Prise)) {
+//                    node_prise++;
+//                }
+//                if (gcoups.getTypeDeCoups().equals(Promotion)) {
+//                    node_promotion++;
+//                }
+                nodes += miniMax(gp, depth - 1);
+                gp.unexec(ui);
             }
-            if (gcoups.getTypeDeCoups().equals(EnPassant)) {
-                node_ep++;
-            }
-            if (gcoups.getTypeDeCoups().equals(Prise)) {
-                node_prise++;
-            }
-            if (gcoups.getTypeDeCoups().equals(Promotion)) {
-                node_promotion++;
-            }
-            nodes += miniMax(gp, depth - 1);
-            gp.unexec(ui);
         }
         return nodes;
     }

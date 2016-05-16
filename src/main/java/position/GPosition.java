@@ -37,7 +37,7 @@ public class GPosition implements ICodage {
         return coupsvalides;
     }
 
-    public void exec(GCoups gcoups, UndoGCoups ui) {
+    public boolean exec(GCoups gcoups, UndoGCoups ui) {
         System.arraycopy(etats, 0, ui.etats, 0, NB_CELLULES);
         ui.droitPetitRoqueNoir = droitPetitRoqueNoir;
         ui.droitGrandRoqueNoir = droitGrandRoqueNoir;
@@ -149,6 +149,8 @@ public class GPosition implements ICodage {
         }
 
         trait = -trait;
+
+        return true;
     }
 
     public void unexec(UndoGCoups ui) {
@@ -216,7 +218,12 @@ public class GPosition implements ICodage {
 
     @Override
     public String toString() {
-        return coupsvalides_lan.toString();
+        return Main.DEBUG ? "CP_CoupsValides : " + '\n'
+                + cp_coupsvalides_lan + '\n'
+                + "G_CoupsValides : " + '\n'
+                + coupsvalides_lan
+                : "G_CoupsValides : " + '\n' + coupsvalides_lan;
+//        return coupsvalides_lan.toString();
     }
 
 }

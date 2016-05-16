@@ -38,6 +38,7 @@ public class FenToGPositionTest {
 
         String f = ICodage.fen_initiale;
         f="4k2r/3b1p2/p3pq1p/1p5Q/P1ppB2p/2b5/1P3PPP/2KR3R b k - 1 18";
+        f="r3k2r/8/8/8/8/8/8/4K3 w kq - 0 1";
         GPosition gp = FenToGPosition.toGPosition(f);
         ArrayList<GCoups> coupsvalides = gp.getCoupsValides();
         assertEquals(gp.getCoupsvalides_lan(), gp.cp_coupsvalides_lan);
