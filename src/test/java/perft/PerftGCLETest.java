@@ -10,6 +10,10 @@ import position.FenToGPosition;
 import position.GCoups;
 import position.GPosition;
 import position.ICodage;
+import static position.ICodage.TYPE_DE_COUPS.EnPassant;
+import static position.ICodage.TYPE_DE_COUPS.Prise;
+import static position.ICodage.TYPE_DE_COUPS.Promotion;
+import static position.ICodage.TYPE_DE_COUPS.Roque;
 import position.UndoGCoups;
 
 public class PerftGCLETest {
@@ -18,7 +22,7 @@ public class PerftGCLETest {
     private int node_ep;
     private int node_prise;
     private int node_promotion;
-    private int e1_f1;
+
 
     public PerftGCLETest() {
     }
@@ -79,11 +83,11 @@ public class PerftGCLETest {
         System.out.println();
         miniMax = miniMax(gp, 4);
         System.out.println("depth 4: " + miniMax);//
-//        System.out.println("depth 4 roque: " + node_roque);//
-//        System.out.println("depth 4 ep: " + node_ep);//
-//        System.out.println("depth 4 prise: " + node_prise);//
-//        System.out.println("depth 4 promotion: " + node_promotion);//
-        System.out.println(e1_f1);
+        System.out.println("depth 4 roque: " + node_roque);//
+        System.out.println("depth 4 ep: " + node_ep);//
+        System.out.println("depth 4 prise: " + node_prise);//
+        System.out.println("depth 4 promotion: " + node_promotion);//
+
 
 //        miniMax = miniMax(gp, 5);
 //        System.out.println("depth 5: " + miniMax + "  () sec");//OK
@@ -108,21 +112,19 @@ public class PerftGCLETest {
             GCoups gcoups = moves.get(i);
             UndoGCoups ui = new UndoGCoups();
             if (gp.exec(gcoups, ui)) {
-//                if(GCoups.getString(gcoups).equals("O-O")){
-//                    e1_f1 ++;
-//                }
-//                if (gcoups.getTypeDeCoups().equals(Roque)) {
-//                    node_roque++;
-//                }
-//                if (gcoups.getTypeDeCoups().equals(EnPassant)) {
-//                    node_ep++;
-//                }
-//                if (gcoups.getTypeDeCoups().equals(Prise)) {
-//                    node_prise++;
-//                }
-//                if (gcoups.getTypeDeCoups().equals(Promotion)) {
-//                    node_promotion++;
-//                }
+               
+                if (gcoups.getTypeDeCoups().equals(Roque)) {
+                    node_roque++;
+                }
+                if (gcoups.getTypeDeCoups().equals(EnPassant)) {
+                    node_ep++;
+                }
+                if (gcoups.getTypeDeCoups().equals(Prise)) {
+                    node_prise++;
+                }
+                if (gcoups.getTypeDeCoups().equals(Promotion)) {
+                    node_promotion++;
+                }
                 nodes += miniMax(gp, depth - 1);
                 gp.unexec(ui);
             }

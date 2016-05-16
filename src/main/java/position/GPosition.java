@@ -51,103 +51,104 @@ public class GPosition implements ICodage {
         if (gcoups.getPiece() == PION && Math.abs(caseX - caseO) == 24) {// avance de 2 cases
             caseEP = trait == NOIR ? caseX + 12 : caseX - 12;
         }
-        if (gcoups.getTypeDeCoups() != null) {
-            switch (gcoups.getTypeDeCoups()) {
-                case Deplacement:
-                    etats[caseX] = etats[caseO];
-                    etats[caseO] = VIDE;
-                    //piece deplacee = tour ou roi
-                    if (trait == BLANC) {
-                        if (gcoups.getPiece() == -ROI || gcoups.getPiece() == -TOUR) {
-                            droitPetitRoqueBlanc = false;
-                            droitGrandRoqueBlanc = false;
-                        }
-                    } else if (trait == NOIR) {
-                        if (gcoups.getPiece() == ROI || gcoups.getPiece() == TOUR) {
-                            droitPetitRoqueNoir = false;
-                            droitGrandRoqueNoir = false;
-                        }
-                    }
-                    //plus de roi ou tour
-                    if (trait == BLANC) {
-                        if (etats[a1] != -TOUR || etats[e1] != -ROI) {
-                            droitGrandRoqueBlanc = false;
-                        }
-                        if (etats[h1] != -TOUR || etats[e1] != -ROI) {
-                            droitPetitRoqueBlanc = false;
-                        }
-                    } else if (trait == NOIR) {
-                        if (etats[a8] != TOUR || etats[e8] != ROI) {
-                            droitGrandRoqueNoir = false;
-                        }
-                        if (etats[h8] != TOUR || etats[e8] != ROI) {
-                            droitPetitRoqueNoir = false;
-                        }
-                    }
-                    break;
-                case Prise:
-                    etats[caseX] = etats[caseO];
-                    etats[caseO] = VIDE;
-                    //piece prise = tour
-                    if (trait == BLANC) {
-                        if (gcoups.getPiece() == -ROI || gcoups.getPiece() == -TOUR) {
-                            droitPetitRoqueBlanc = false;
-                            droitGrandRoqueBlanc = false;
-                        }
-                    } else if (trait == NOIR) {
-                        if (gcoups.getPiece() == ROI || gcoups.getPiece() == TOUR) {
-                            droitPetitRoqueNoir = false;
-                            droitGrandRoqueNoir = false;
-                        }
-                    }
-                    if (trait == BLANC) {
-                        if (etats[a1] != -TOUR || etats[e1] != -ROI) {
-                            droitGrandRoqueBlanc = false;
-                        }
-                        if (etats[h1] != -TOUR || etats[e1] != -ROI) {
-                            droitPetitRoqueBlanc = false;
-                        }
-                    } else if (trait == NOIR) {
-                        if (etats[a8] != TOUR || etats[e8] != ROI) {
-                            droitGrandRoqueNoir = false;
-                        }
-                        if (etats[h8] != TOUR || etats[e8] != ROI) {
-                            droitPetitRoqueNoir = false;
-                        }
-                    }
+//        if (gcoups.getTypeDeCoups() != null) {
+        switch (gcoups.getTypeDeCoups()) {
+            case Deplacement:
+                etats[caseX] = etats[caseO];
+                etats[caseO] = VIDE;
+                //piece deplacee = tour ou roi
 
-                    break;
-                case EnPassant:
-                    // caseX == caseEP
-                    etats[caseX] = etats[caseO];
-                    etats[caseO] = VIDE;
-                    if (trait == BLANC) {
-                        etats[caseX + sud] = VIDE;
-                    } else if (trait == NOIR) {
-                        etats[caseX + nord] = VIDE;
-                    }
-                    break;
-                case Promotion:
-                    etats[caseX] = gcoups.getPiecePromotion();
-                    etats[caseO] = VIDE;
-                    break;
-                case Roque:
-                    etats[caseX] = etats[caseO];//ROI
-                    etats[caseO] = VIDE;
-                    etats[gcoups.getCaseXTour()] = etats[gcoups.getCaseOTour()];//TOUR
-                    etats[gcoups.getCaseOTour()] = VIDE;
-                    if (trait == BLANC) {
+                if (trait == BLANC) {
+                    if (gcoups.getPiece() == -ROI || gcoups.getPiece() == -TOUR) {
                         droitPetitRoqueBlanc = false;
                         droitGrandRoqueBlanc = false;
-                    } else {
+                    }
+                } else if (trait == NOIR) {
+                    if (gcoups.getPiece() == ROI || gcoups.getPiece() == TOUR) {
                         droitPetitRoqueNoir = false;
                         droitGrandRoqueNoir = false;
                     }
-                    break;
-                default:
-                    break;
-            }
+                }
+                //plus de roi ou tour
+                if (trait == BLANC) {
+                    if (etats[a1] != -TOUR || etats[e1] != -ROI) {
+                        droitGrandRoqueBlanc = false;
+                    }
+                    if (etats[h1] != -TOUR || etats[e1] != -ROI) {
+                        droitPetitRoqueBlanc = false;
+                    }
+                } else if (trait == NOIR) {
+                    if (etats[a8] != TOUR || etats[e8] != ROI) {
+                        droitGrandRoqueNoir = false;
+                    }
+                    if (etats[h8] != TOUR || etats[e8] != ROI) {
+                        droitPetitRoqueNoir = false;
+                    }
+                }
+                break;
+            case Prise:
+                etats[caseX] = etats[caseO];
+                etats[caseO] = VIDE;
+                //piece prise = tour
+                if (trait == BLANC) {
+                    if (gcoups.getPiece() == -ROI || gcoups.getPiece() == -TOUR) {
+                        droitPetitRoqueBlanc = false;
+                        droitGrandRoqueBlanc = false;
+                    }
+                } else if (trait == NOIR) {
+                    if (gcoups.getPiece() == ROI || gcoups.getPiece() == TOUR) {
+                        droitPetitRoqueNoir = false;
+                        droitGrandRoqueNoir = false;
+                    }
+                }
+                if (trait == BLANC) {
+                    if (etats[a1] != -TOUR || etats[e1] != -ROI) {
+                        droitGrandRoqueBlanc = false;
+                    }
+                    if (etats[h1] != -TOUR || etats[e1] != -ROI) {
+                        droitPetitRoqueBlanc = false;
+                    }
+                } else if (trait == NOIR) {
+                    if (etats[a8] != TOUR || etats[e8] != ROI) {
+                        droitGrandRoqueNoir = false;
+                    }
+                    if (etats[h8] != TOUR || etats[e8] != ROI) {
+                        droitPetitRoqueNoir = false;
+                    }
+                }
+
+                break;
+            case EnPassant:
+                // caseX == caseEP
+                etats[caseX] = etats[caseO];
+                etats[caseO] = VIDE;
+                if (trait == BLANC) {
+                    etats[caseX + sud] = VIDE;
+                } else if (trait == NOIR) {
+                    etats[caseX + nord] = VIDE;
+                }
+                break;
+            case Promotion:
+                etats[caseX] = gcoups.getPiecePromotion();
+                etats[caseO] = VIDE;
+                break;
+            case Roque:
+                etats[caseX] = etats[caseO];//ROI
+                etats[caseO] = VIDE;
+                etats[gcoups.getCaseXTour()] = etats[gcoups.getCaseOTour()];//TOUR
+                etats[gcoups.getCaseOTour()] = VIDE;
+                if (trait == BLANC) {
+                    droitPetitRoqueBlanc = false;
+                    droitGrandRoqueBlanc = false;
+                } else {
+                    droitPetitRoqueNoir = false;
+                    droitGrandRoqueNoir = false;
+                }
+                break;
+            default:
+                break;
         }
+//        }
 
         trait = -trait;
 
