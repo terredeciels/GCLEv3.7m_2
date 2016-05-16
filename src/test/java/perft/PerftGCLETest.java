@@ -42,11 +42,11 @@ public class PerftGCLETest {
     @Test
     public void perftTest() {
         //voir http://chessprogramming.wikispaces.com/Perft+Results
-        String f = ICodage.fen_initiale;
+//        String f = ICodage.fen_initiale;
 //        f = "r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 1";
 //        f = "8/2p5/3p4/KP5r/1R3p1k/8/4P1P1/8 w - - 0 1";
-        f = "r3k2r/Pppp1ppp/1b3nbN/nP6/BBP1P3/q4N2/Pp1P2PP/R2Q1RK1 w kq - 0 1";
-        f = "r3k2r/8/8/8/8/8/8/4K3 w kq - 0 1";
+//        f = "r3k2r/Pppp1ppp/1b3nbN/nP6/BBP1P3/q4N2/Pp1P2PP/R2Q1RK1 w kq - 0 1";
+        String f = "r3k2r/8/8/8/8/8/8/4K3 w kq - 0 1";
 //        f = "1r2k2r/8/8/8/8/8/8/R3K2R w KQk - 0 1";
 
         GPosition gp = FenToGPosition.toGPosition(f);
@@ -108,9 +108,9 @@ public class PerftGCLETest {
             GCoups gcoups = moves.get(i);
             UndoGCoups ui = new UndoGCoups();
             if (gp.exec(gcoups, ui)) {
-                if(GCoups.getString(gcoups).equals("O-O")){
-                    e1_f1 ++;
-                }
+//                if(GCoups.getString(gcoups).equals("O-O")){
+//                    e1_f1 ++;
+//                }
 //                if (gcoups.getTypeDeCoups().equals(Roque)) {
 //                    node_roque++;
 //                }

@@ -48,8 +48,11 @@ public class ExecGCoupsTest {
         ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fichier));
         Pgn m = (Pgn) ois.readObject();
         ArrayList<String> fenList = m.getFenListTest();
-        System.out.println(fenList.size());
 
+//         ArrayList<String> fenList =new ArrayList<>();
+//        System.out.println(fenList.size());
+//        String fen = "r3k2r/8/8/8/8/8/8/4K3 w kq - 0 1";
+//        fenList.add(fen);
         for (String f : fenList) {
             fenI = f;
             gp = FenToGPosition.toGPosition(f);

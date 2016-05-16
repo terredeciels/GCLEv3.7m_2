@@ -242,4 +242,12 @@ public class GPosition implements ICodage {
         return droitGrandRoqueBlanc;
     }
 
+    public Position getPosition() {
+        return position;
+    }
+
+    public ArrayList<String> getCp_coupsvalides_lan() {
+        return cp_coupsvalides_lan;
+    }
+
 }
