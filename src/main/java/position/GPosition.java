@@ -68,6 +68,7 @@ public class GPosition implements ICodage {
                             droitGrandRoqueNoir = false;
                         }
                     }
+                    //plus de roi ou tour
                     if (trait == BLANC) {
                         if (etats[a1] != -TOUR || etats[e1] != -ROI) {
                             droitGrandRoqueBlanc = false;

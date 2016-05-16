@@ -100,4 +100,30 @@ public class GCoups implements ICodage {
     public int getPiecePromotion() {
         return piecePromotion;
     }
+
+    public static String getStringShort(GCoups coups) {
+        if (((coups.piece == ROI) && (coups.caseO == e1) && (coups.caseX == g1))) {
+            return "e1g1";
+        } else if ((coups.piece == ROI) && (coups.caseO == e8) && (coups.caseX == g8)) {
+            return "e8g8";
+        } else if (((coups.piece == ROI) && (coups.caseO == e1) && (coups.caseX == c1))) {
+            return "e1c1";
+        } else if ((coups.piece == ROI) && (coups.caseO == e8) && (coups.caseX == c8)) {
+            return "e8c8";
+        } else if (coups.type_de_coups == TYPE_DE_COUPS.EnPassant) {
+            return STRING_CASES[INDICECASES[coups.getCaseO()]] + STRING_CASES[INDICECASES[coups.getCaseX()]];
+        } else if (coups.type_de_coups == TYPE_DE_COUPS.Promotion) {
+            if (coups.pieceprise != 0) {
+                return STRING_CASES[INDICECASES[coups.getCaseO()]] + STRING_CASES[INDICECASES[coups.getCaseX()]]
+                        + STRING_PIECE[Math.abs(coups.piecePromotion)];
+            } else {
+                return STRING_CASES[INDICECASES[coups.getCaseO()]] + STRING_CASES[INDICECASES[coups.getCaseX()]]
+                        + STRING_PIECE[Math.abs(coups.piecePromotion)];
+            }
+        } else if (coups.type_de_coups == TYPE_DE_COUPS.Prise) {
+            return STRING_CASES[INDICECASES[coups.getCaseO()]] + STRING_CASES[INDICECASES[coups.getCaseX()]];
+        } else {
+            return STRING_CASES[INDICECASES[coups.getCaseO()]] + STRING_CASES[INDICECASES[coups.getCaseX()]];
+        }
+    }
 }

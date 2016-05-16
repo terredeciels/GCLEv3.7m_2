@@ -1,8 +1,6 @@
 package position;
 
 import java.util.ArrayList;
-import position.GCoups;
-import position.GPosition;
 
 public class PGenerateur extends AbstractGenerateur {
 
