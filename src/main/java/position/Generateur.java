@@ -113,31 +113,31 @@ public class Generateur extends AbstractGenerateur {
             if (pgPosition.droitPetitRoqueBlanc) {
                 possible = ((pgEtats[f1] == VIDE)
                         && (pgEtats[h1] == -TOUR)
-                         && (pgEtats[e1] == -ROI)
+                        && (pgEtats[e1] == -ROI)
                         && (pgEtats[g1] == VIDE));
                 possible &= !(attaqueRoque(e1, f1, g1, coupsAttaque));
 
                 if (possible) {
-                    fCoups.add(new GCoups(-ROI, e1, g1, h1, f1, 0, TYPE_DE_COUPS.Roque));
+                    fCoups.add(new GCoups(ROI, e1, g1, h1, f1, 0, TYPE_DE_COUPS.Roque));
                 }
             }
             if (pgPosition.droitGrandRoqueBlanc) {
                 possible = ((pgEtats[d1] == VIDE)
-//                        && (pgEtats[a1] == -TOUR)
-//                        && (pgEtats[e1] == -ROI)
+                        && (pgEtats[a1] == -TOUR)
+                        && (pgEtats[e1] == -ROI)
                         && (pgEtats[c1] == VIDE)
                         && (pgEtats[b1] == VIDE));
                 possible &= !(attaqueRoque(e1, d1, c1, coupsAttaque));
 
                 if (possible) {
-                    fCoups.add(new GCoups(-ROI, e1, c1, a1, d1, 0, TYPE_DE_COUPS.Roque));
+                    fCoups.add(new GCoups(ROI, e1, c1, a1, d1, 0, TYPE_DE_COUPS.Roque));
                 }
             }
         } else {
             if (pgPosition.droitPetitRoqueNoir) {
                 possible = ((pgEtats[f8] == VIDE)
-//                        && (pgEtats[h8] == TOUR)
-//                        && (pgEtats[e8] == ROI)
+                        && (pgEtats[h8] == TOUR)
+                        && (pgEtats[e8] == ROI)
                         && (pgEtats[g8] == VIDE));
                 possible &= !(attaqueRoque(e8, f8, g8, coupsAttaque));
 
@@ -147,8 +147,8 @@ public class Generateur extends AbstractGenerateur {
             }
             if (pgPosition.droitGrandRoqueNoir) {
                 possible = ((pgEtats[d8] == VIDE)
-//                        && (pgEtats[a8] == TOUR)
-//                         && (pgEtats[e8] == ROI)
+                        && (pgEtats[a8] == TOUR)
+                        && (pgEtats[e8] == ROI)
                         && (pgEtats[c8] == VIDE)
                         && (pgEtats[b8] == VIDE));
                 possible &= !(attaqueRoque(e8, d8, c8, coupsAttaque));
@@ -181,11 +181,11 @@ public class Generateur extends AbstractGenerateur {
             if (couleur == BLANC) {
                 int caseX = caseEP + sudest;
                 if (pionBlanc(caseX)) {
-                    pCoups.add(new GCoups(-PION, caseX, caseEP, 0, TYPE_DE_COUPS.EnPassant));
+                    pCoups.add(new GCoups(PION, caseX, caseEP, 0, TYPE_DE_COUPS.EnPassant));
                 }
                 caseX = caseEP + sudouest;
                 if (pionBlanc(caseX)) {
-                    pCoups.add(new GCoups(-PION, caseX, caseEP, 0, TYPE_DE_COUPS.EnPassant));
+                    pCoups.add(new GCoups(PION, caseX, caseEP, 0, TYPE_DE_COUPS.EnPassant));
                 }
             } else {
                 int caseX = caseEP + nordest;

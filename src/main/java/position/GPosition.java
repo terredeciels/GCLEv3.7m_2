@@ -59,13 +59,21 @@ public class GPosition implements ICodage {
                 //piece deplacee = tour ou roi
 
                 if (trait == BLANC) {
-                    if (gcoups.getPiece() == -ROI || gcoups.getPiece() == -TOUR) {
+                    if (gcoups.getPiece() == ROI) {
                         droitPetitRoqueBlanc = false;
+                        droitGrandRoqueBlanc = false;
+                    } else if (gcoups.getPiece() == TOUR && caseO == h1) {
+                        droitPetitRoqueBlanc = false;
+                    } else if (gcoups.getPiece() == TOUR && caseO == a1) {
                         droitGrandRoqueBlanc = false;
                     }
                 } else if (trait == NOIR) {
-                    if (gcoups.getPiece() == ROI || gcoups.getPiece() == TOUR) {
+                    if (gcoups.getPiece() == ROI) {
                         droitPetitRoqueNoir = false;
+                        droitGrandRoqueNoir = false;
+                    } else if (gcoups.getPiece() == TOUR && caseO == h8) {
+                        droitPetitRoqueNoir = false;
+                    } else if (gcoups.getPiece() == TOUR && caseO == a8) {
                         droitGrandRoqueNoir = false;
                     }
                 }
@@ -91,13 +99,21 @@ public class GPosition implements ICodage {
                 etats[caseO] = VIDE;
                 //piece prise = tour
                 if (trait == BLANC) {
-                    if (gcoups.getPiece() == -ROI || gcoups.getPiece() == -TOUR) {
+                    if (gcoups.getPiece() == ROI) {
                         droitPetitRoqueBlanc = false;
+                        droitGrandRoqueBlanc = false;
+                    } else if (gcoups.getPiece() == TOUR && caseO == h1) {
+                        droitPetitRoqueBlanc = false;
+                    } else if (gcoups.getPiece() == TOUR && caseO == a1) {
                         droitGrandRoqueBlanc = false;
                     }
                 } else if (trait == NOIR) {
-                    if (gcoups.getPiece() == ROI || gcoups.getPiece() == TOUR) {
+                    if (gcoups.getPiece() == ROI) {
                         droitPetitRoqueNoir = false;
+                        droitGrandRoqueNoir = false;
+                    } else if (gcoups.getPiece() == TOUR && caseO == h8) {
+                        droitPetitRoqueNoir = false;
+                    } else if (gcoups.getPiece() == TOUR && caseO == a8) {
                         droitGrandRoqueNoir = false;
                     }
                 }
